@@ -6,6 +6,9 @@ themeBtn.addEventListener('click', () => {
 document.getElementById('themeNavBtn').addEventListener('click', () => {
   themeBtn.click();
 });
+document.getElementById('themeNavBtnMobile').addEventListener('click', () => {
+  themeBtn.click();
+});
 
 const scrollTopBtn = document.getElementById('scrollTopBtn');
 window.addEventListener('scroll', () => {
