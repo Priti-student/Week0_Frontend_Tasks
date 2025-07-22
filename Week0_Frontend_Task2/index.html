@@ -6,23 +6,168 @@
 <title>About Me</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .dark_theme{
+    --body_bg:#1B1A55;
+    --body_text:white;
+    --nav:#1B1A55;
+    --toggle_nav:white;
+    --hero_bg:#9290C3;
+    --hero_text:black;
+    --about_bg:#1B1A55;
+    --contact_bg:#ced1d4;
+    --footer_bg:#535C91;
+    --click_bg:rgb(240, 75, 141);
+  }
+
+  :root{
+    --body_bg:#f7fafc;
+    --body_text:#2d3748;
+    --nav:white;
+    --toggle_nav:black;
+    --hero_bg:#721bc4;
+    --hero_text:white;
+    --about_bg:#f9fafb;
+    --contact_bg:#c4c7ca;
+    --footer_bg:#edf2f7;
+    --click_bg:#3B82F6;
+  }
+
+  nav{
+    background-color: var(--nav);
+  }
+  #navToggle i{
+    color: var(--toggle_nav);
+  }
+  #hero{
+    background-color:var(--hero_bg) ;
+    color: var(--hero_text);
+  }
+  #fun{
+    background-color:var(--about_bg) ;
+  }
+  #counterBtn{
+    background-color: var(--click_bg);
+  }
+  #about{
+    background-color:var(--about_bg) ;
+  }
+  #contact{
+    background-color:var(--contact_bg) ;
+    color: black;
+  }
+  footer{
+    background-color:var(--footer_bg) ;
+  }
+
+  #welcomeScreen {
+  background: linear-gradient(to bottom, #000428, #004e92);
+}
+
+  @keyframes zoomIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-zoomIn {
+  animation: zoomIn 0.7s ease-out forwards;
+}
+
+
+</style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<!--<body id="page" class="bg-gray-100 text-gray-800">-->
+<body id="page" style="background-color:var(--body_bg); color:var(--body_text)">
+<!-- Welcome screen -->
+<div id="welcomeScreen" class="fixed inset-0 flex flex-col justify-center items-center z-50 overflow-hidden">
+  <div id="particles-js" class="absolute inset-0"></div>
+  <div class="text-4xl font-bold animate-zoomIn text-white z-10">
+    🎉Welcome!🎉
+  </div>
+</div>
+
+  <!-- Navbar -->
+  <!--<nav class="bg-white shadow fixed top-0 left-0 right-0 z-50">-->
+  <nav class="shadow fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div class="flex justify-between items-center h-16">
+
+    <div class="font-bold text-3xl">👩🏻‍🎓MySite</div>
+
+    <div class="md:hidden">
+        <button id="navToggle" class="text-gray-800 focus:outline-none">
+          <!--<i class="fas fa-bars text-2xl text-black"></i>-->
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </div>
+
+    <div id="navLinks" class="hidden md:flex space-x-6">
+    <ul class="flex space-x-6">
+      <li><a href="#" class="hover:text-blue-500">Home</a></li>
+      <li><a href="#about" class="hover:text-blue-500">About</a></li>
+      <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+      <li><button id="themeNavBtn" class="hover:text-blue-500">Theme</button></li>
+    </ul>
+    </div>
+
+  </div>
+  </div>
+
+
+  <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40">
+    <div class="bg-white w-64 h-full shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out" id="mobilePanel">
+      <div class="flex justify-between items-center p-4 border-b">
+        <span class="font-bold text-lg text-black">Menu</span>
+        <button id="navClose" class="text-gray-800 focus:outline-none">
+          <i class="fas fa-times text-2xl"></i>
+        </button>
+      </div>
+      <div class="flex flex-col space-y-4 p-4 text-black">
+        <ul>
+        <li><a href="#" class="hover:text-blue-500">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-500">About</a></li>
+        <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+        <li><button id="themeNavBtnMobile" class="hover:text-blue-500 text-left">Theme</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+</nav>
 
 <!-- Hero -->
-<section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center py-20">
-  <img src="images/Profile image.jpg" alt="Your Photo" class="w-35 h-40 mx-auto rounded-full shadow-lg mb-4">
-  <h1 class="text-4xl font-bold" data-aos="fade-right" data-aos-delay="100" data-aos-once="true">Hi, I am Priti😊</h1>
-  <p class="text-lg mt-2 mb-4" data-aos="fade-right" data-aos-delay="100" data-aos-once="true">Aspiring Web Developer | Tech Enthusiast</p>
-  <a href="#contact" class="bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow hover:bg-gray-100 transition">
+<!--<section class="mt-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center py-20">-->
+<section id="hero" class="mt-16 text-center py-20">
+  <img src="images/Profile image.jpg" alt="Your Photo" class="w-35 h-40 mx-auto rounded-full shadow-lg mb-4 transform transition duration-300 hover:shadow-2xl hover:scale-105">
+  <h1 class="text-4xl font-bold" data-aos="fade-right" data-aos-delay="1800" data-aos-once="true">Hi, I am Priti😊</h1>
+  <p class="text-lg mt-2 mb-4" data-aos="fade-right" data-aos-delay="1800" data-aos-once="true">Aspiring Web Developer | Tech Enthusiast</p>
+  <a href="#contact" class="bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow hover:bg-gray-200 transition">
     Let's Connect
   </a>
 </section>
 
+<!-- Fun -->
+
+<!--<section class="mt-4">-->
+<section id="fun" class="mt-4 ">
+  <div class="text-center mt-4">
+  <button id="counterBtn" class="text-white px-4 py-2 rounded">Click me!</button>
+  <p id="counterDisplay" class="mt-2 text-lg"></p>
+</div>
+</section>
+
 <!-- About -->
-<section class="py-6 px-4 md:px-20 bg-gray-50">
+<!--<section id="about" class="py-6 px-4 md:px-20 bg-gray-50 mt-4">-->
+  <section id="about" class="py-6 px-4 md:px-20 mt-4">
   <h2 class="text-3xl font-semibold text-center mb-8" data-aos="fade-down" data-aos-once="true">About Me</h2>
   <div class="max-w-3xl mx-auto text-center text-lg leading-relaxed space-y-2">
     <p data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
@@ -41,9 +186,31 @@
 </section>
 
 <!-- Contact -->
-<section id="contact" class="py-6 px-4 md:py-8 md:px-20 bg-gray-200">
-  <h2 class="text-3xl font-semibold text-center mb-4">Contact At</h2>
-  <div class="flex flex-col items-center gap-2">
+<!--<section id="contact" class="py-6 px-4 md:py-8 md:px-20 bg-gray-200">-->
+<section id="contact" class="py-6 px-4 md:py-8 md:px-20">
+  <h2 class="text-3xl font-semibold text-center mb-4">Contact </h2>
+
+  <div class="flex flex-col items-center gap-4">
+  <form id="contactForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3" id="name" type="text" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3" id="email" type="email" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Message</label>
+      <textarea class="shadow appearance-none border rounded w-full py-2 px-3" id="message" required></textarea>
+    </div>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
+      Send
+    </button>
+  </form>
+</div>
+
+  <div class="flex flex-col items-center gap-2 mt-5">
     <p>Email: <a href="mailto:rampriti2006@gmail.com" class="text-blue-600 hover:underline">rampriti2006@gmail.com</a></p>
 
     <div class="flex gap-6 mt-2">
@@ -64,13 +231,24 @@
   </div>
 </section>
 
-<footer class="text-center text-sm py-2 bg-gray-200">
+<!--<footer class="text-center text-sm py-2 bg-gray-200">-->
+<footer class="text-center text-sm py-2">
   &copy; 2025 Skill++. All rights reserved.
 </footer>
 
+<button id="scrollTopBtn" class="fixed bottom-4 right-20 bg-gray-500 text-white px-4 py-2  rounded-full shadow hover:bg-gray-600 z-50 text-3xl hidden">
+  ↑
+</button>
+
+<button id="themeToggleBtn" class="fixed bottom-4 right-4 bg-indigo-600 text-white p-3 rounded-full shadow hover:bg-indigo-700 z-50 dark:bg-yellow-600 dark:hover:bg-yellow-700">
+  🌙
+</button>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init();
 </script>
+<script src="script.js"></script>
 </body>
 </html>
